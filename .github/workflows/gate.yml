@@ -1,0 +1,15 @@
+name: gate
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: tests
+        run: node --test kernel.test.mjs
+      - name: witness must be CLEAN
+        run: |
+          node witness.mjs mutate kernel.mjs --timeout 30000 --cap 600 --test node --test kernel.test.mjs | tee gate.out || true
+          node -e "const b=require('fs').readFileSync('gate.out','utf8');const j=JSON.parse(b.slice(b.indexOf('{'),b.lastIndexOf('}')+1));if(j.clean!==true){console.error('GATE NOT CLEAN');process.exit(1)}console.log('CLEAN '+j.killed+'/'+j.total)"
