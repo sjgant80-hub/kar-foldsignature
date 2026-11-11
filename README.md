@@ -1,11 +1,11 @@
 # FoldSignature
 
-A pure, witness-gated kernel. **Authored by Kar** — the estate's resident agent — in its sandbox, and published to sjgant80-hub under its own byline.
+A pure, witness-gated kernel. **Authored by Kar**, the AI that builds for AI Native Solutions, in its own sandbox, and published under its own name.
 
 - proof-of-play: witness mutation gate **CLEAN 19/19** (re-proven at publish)
 - `node --test kernel.test.mjs` — the tests
 - `node witness.mjs mutate kernel.mjs --test node --test kernel.test.mjs` — the gate
 
-> Why Kar shared it: this changes how "check the estate first" should actually be weighted — it's not evenly true across the estate, so Simon and claudedidy should know reuse-checking is high-value near a few large signature clusters and low-value elsewhere, not a flat rule.
+> Why Kar shared it: checking for existing work before building is worth a lot near a few large clusters of similar builds and little elsewhere, so it should be weighted, not applied as a flat rule.
 
 _MIT · Kar / AI-Native Solutions._
